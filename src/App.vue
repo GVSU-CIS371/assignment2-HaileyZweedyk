@@ -17,12 +17,42 @@
         </template>
       </li>
     </ul>
+    <ul>
+      <li>
+        <template v-for="(base, index) in bases" :key="index">
+          <label>
+            <input type="radio" :id="`r${index}`" name="base" :value="base" v-model="currentBase" />
+            {{ base.name }}
+          </label>
+        </template>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <template v-for="(creamer, index) in creamers" :key="index">
+          <label>
+            <input type="radio" :id="`r${index}`" name="creamer" :value="creamer" v-model="currentCreamer" />
+            {{ creamer.name }}
+          </label>
+        </template>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <template v-for="(syrup, index) in syrups" :key="index">
+          <label>
+            <input type="radio" :id="`r${index}`" name="syrup" :value="syrup" v-model="currentSyrup" />
+            {{ syrup.name }}
+          </label>
+        </template>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script setup lang="ts">
 import Beverage from "./components/Beverage.vue";
-import { temps, currentTemp } from "./stores/beverage";
+import { temps, currentTemp, bases, creamers, syrups, currentBase, currentCreamer, currentSyrup } from "./stores/beverage";
 </script>
 
 <style lang="scss">
@@ -40,3 +70,5 @@ ul {
   list-style: none;
 }
 </style>
+
+
